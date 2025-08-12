@@ -266,3 +266,30 @@ tr:hover { background-color: #e9ecef; }
         box-sizing: border-box;
     }
 }
+/* ... (existing CSS code) ... */
+
+/* Dashboard-Layout für mehrere Spalten */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.product-card {
+    /* Existing styles for product-card */
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Anpassung der Platzierung des Löschen-Buttons */
+.delete-product-form {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
 <div class="container">
@@ -22,7 +23,7 @@
         </div>
     </header>
 
-    <div class="products-container">
+    <div class="product-grid">
         <% products.forEach(product => { %>
             <div class="product-card" data-product-name="<%= product.name.toLowerCase() %>">
                 <h2><%= product.name %></h2>
@@ -47,24 +48,24 @@
             </div>
         <% }) %>
     </div>
-</div>
 
-<script>
-    const searchInput = document.getElementById('searchInput');
-    const productCards = document.querySelectorAll('.product-card');
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const productCards = document.querySelectorAll('.product-card');
 
-    searchInput.addEventListener('keyup', (e) => {
-        const searchValue = e.target.value.toLowerCase();
+        searchInput.addEventListener('keyup', (e) => {
+            const searchValue = e.target.value.toLowerCase();
 
-        productCards.forEach(card => {
-            const productName = card.getAttribute('data-product-name');
-            if (productName.includes(searchValue)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+            productCards.forEach(card => {
+                const productName = card.getAttribute('data-product-name');
+                if (productName.includes(searchValue)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
-    });
-</script>
+    </script>
+</div>
 </body>
 </html>

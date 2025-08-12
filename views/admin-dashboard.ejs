@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <header>
+    <header class="header-main">
         <h1>Admin Dashboard</h1>
         <div class="nav-links">
             <a href="/reviews/dashboard" class="btn-primary">Zurück zum Dashboard</a>
@@ -22,6 +22,10 @@
             <% products.forEach(product => { %>
                 <div class="product-card">
                     <h3><%= product.name %></h3>
+                    <form action="/admin/delete-product/<%= product._id %>" method="POST" class="delete-product-form">
+                        <button type="submit" class="btn-danger">Produkt löschen</button>
+                    </form>
+
                     <p class="text-muted">Durchschnittliche Bewertungen (<%= product.reviewCount %>):</p>
                     <ul>
                         <li>Qualität: <%= (product.ratings.quality).toFixed(1) %></li>
