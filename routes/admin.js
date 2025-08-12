@@ -1,3 +1,4 @@
+// routes/admin.js
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -31,13 +32,26 @@ router.post('/delete-review/:id', ensureAdmin, async (req, res) => {
 
         const product = await Product.findById(review.product);
         if (product) {
-            // Durchschnittswerte neu berechnen
-            const oldRatingSum = product.reviewCount * product.ratings.quality;
-            product.ratings.quality = (oldRatingSum - review.ratings.quality) / (product.reviewCount - 1);
-            product.reviewCount--;
-            // TODO: Repeat for other ratings (service, atmosphere)
+            const newReviewCount = product.reviewCount - 1;
 
-            // Kommentare im Produkt aktualisieren
+            if (newReviewCount > 0) {
+                // Durchschnittswerte neu berechnen, wenn noch Bewertungen vorhanden sind
+                const oldSumQuality = product.ratings.quality * product.reviewCount;
+                product.ratings.quality = (oldSumQuality - review.ratings.quality) / newReviewCount;
+
+                const oldSumService = product.ratings.service * product.reviewCount;
+                product.ratings.service = (oldSumService - review.ratings.service) / newReviewCount;
+
+                const oldSumAtmosphere = product.ratings.atmosphere * product.reviewCount;
+                product.ratings.atmosphere = (oldSumAtmosphere - review.ratings.atmosphere) / newReviewCount;
+            } else {
+                // Wenn dies die letzte Bewertung war, setze alle Werte auf 0
+                product.ratings.quality = 0;
+                product.ratings.service = 0;
+                product.ratings.atmosphere = 0;
+            }
+
+            product.reviewCount = newReviewCount;
             product.comments.pull(reviewId);
             await product.save();
         }
