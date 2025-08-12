@@ -1,0 +1,178 @@
+/* Globale Variablen */
+:root {
+    --primary-color: #3498db; /* Hellblau */
+    --secondary-color: #8c92a1; /* Grauton */
+    --accent-color: #2ecc71; /* Grün */
+    --danger-color: #e74c3c; /* Rot */
+    --background-color: #f4f7f9; /* Heller Hintergrund */
+    --card-background: #ffffff; /* Weißer Hintergrund für Karten */
+    --text-color: #2c3e50; /* Dunkelblau */
+    --border-color: #e0e6ed; /* Leichter Rand */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container und Layout */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.auth-links a, .nav-links a {
+    margin-left: 15px;
+}
+
+/* Formulare */
+.form-card {
+    background: var(--background-color);
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"], input[type="password"], textarea, input[type="range"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+label {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn-primary { background-color: var(--primary-color); }
+.btn-primary:hover { background-color: #2980b9; }
+
+.btn-success { background-color: var(--accent-color); }
+.btn-success:hover { background-color: #27ae60; }
+
+.btn-danger { background-color: var(--danger-color); }
+.btn-danger:hover { background-color: #c0392b; }
+
+.btn-link {
+    background: none;
+    color: var(--primary-color);
+    padding: 0;
+    margin: 0;
+    text-decoration: underline;
+}
+
+/* Links */
+a.link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a.link:hover { text-decoration: underline; }
+
+.text-muted {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Dashboard-Karten */
+.product-card, .comment-card {
+    background: var(--background-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.product-card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.product-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-card {
+    background: #ecf0f1; /* Heller Grauton */
+    margin-top: 10px;
+    padding: 15px;
+}
+
+/* Admin-Dashboard */
+.admin-section {
+    margin-top: 40px;
+}
+.admin-section h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+tr:nth-child(even) { background-color: #f8f9fa; }
+tr:hover { background-color: #e9ecef; }

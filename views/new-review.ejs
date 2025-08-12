@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neue Bewertung</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Neue Bewertung abgeben</h1>
+    <form action="/reviews/new" method="POST">
+        <input type="text" name="name" placeholder="Name des Objekts" required>
+        <label for="quality">Qualität (1-6):</label>
+        <input type="range" id="quality" name="quality" min="1" max="6" value="3" required>
+        <label for="service">Service (1-6):</label>
+        <input type="range" id="service" name="service" min="1" max="6" value="3" required>
+        <label for="atmosphere">Atmosphäre (1-6):</label>
+        <input type="range" id="atmosphere" name="atmosphere" min="1" max="6" value="3" required>
+        <textarea name="comment" placeholder="Ihr Kommentar" required></textarea>
+        <button type="submit">Bewertung abschicken</button>
+    </form>
+</div>
+</body>
+</html>

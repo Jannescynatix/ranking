@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Willkommen, <%= user.username %>!</h1>
+    <a href="/reviews/new">Neue Bewertung</a>
+    <a href="/logout">Abmelden</a>
+
+    <% if (user.isAdmin) { %>
+        <a href="/admin/dashboard">Admin-Dashboard</a>
+    <% } %>
+
+    <% products.forEach(product => { %>
+        <div class="product-card">
+            <h2><%= product.name %></h2>
+            <p>Durchschnittliche Bewertungen:</p>
+            <ul>
+                <li>Qualität: <%= (product.ratings.quality).toFixed(1) %></li>
+                <li>Service: <%= (product.ratings.service).toFixed(1) %></li>
+                <li>Atmosphäre: <%= (product.ratings.atmosphere).toFixed(1) %></li>
+            </ul>
+            <p>Anzahl Bewertungen: <%= product.reviewCount %></p>
+
+            <h3>Kommentare:</h3>
+            <% product.comments.forEach(comment => { %>
+                <div class="comment-card">
+                    <p><%= comment.comment %></p>
+                </div>
+            <% }) %>
+        </div>
+    <% }) %>
+</div>
+</body>
+</html>

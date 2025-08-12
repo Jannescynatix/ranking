@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Login</h2>
+    <div class="form-card">
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Benutzername" required>
+            <input type="password" name="password" placeholder="Passwort" required>
+            <button type="submit" class="btn-primary">Anmelden</button>
+        </form>
+        <p class="text-muted">Noch kein Konto? <a href="/register" class="link">Registrieren</a></p>
+    </div>
+</div>
+</body>
+</html>
