@@ -176,3 +176,93 @@ th {
 }
 tr:nth-child(even) { background-color: #f8f9fa; }
 tr:hover { background-color: #e9ecef; }
+/* Globale Variablen (für Konsistenz) */
+:root {
+    --header-bg: #2c3e50; /* Dunkelblau für den Header */
+    --header-text: #ecf0f1; /* Helles Grau für Text */
+    --link-hover: #3498db; /* Hellblau für Hover-Effekt */
+    --border-radius-btn: 20px;
+    --transition-speed: 0.3s;
+}
+
+/* Header-Stil */
+.header-main {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-main h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Navigations-Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Abstand zwischen den Links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--header-text);
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: var(--border-radius-btn);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+/* Button-Stile im Header */
+.nav-links .btn-primary {
+    background-color: transparent;
+    border: 2px solid var(--link-hover);
+    color: var(--link-hover);
+}
+
+.nav-links .btn-primary:hover {
+    background-color: var(--link-hover);
+    color: var(--header-bg);
+    transform: translateY(-2px); /* Leichter Schwebe-Effekt */
+}
+
+.nav-links .btn-danger {
+    background-color: var(--danger-color); /* Rot aus Ihrer Palette */
+    color: white;
+    border: 2px solid var(--danger-color);
+}
+
+.nav-links .btn-danger:hover {
+    background-color: transparent;
+    color: var(--danger-color);
+    transform: translateY(-2px);
+}
+
+/* Responsivität für kleine Bildschirme */
+@media (max-width: 768px) {
+    .header-main {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .header-main h1 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        width: 100%; /* Links füllen die Breite */
+        box-sizing: border-box;
+    }
+}

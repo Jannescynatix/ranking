@@ -14,10 +14,10 @@
     <div class="form-card">
         <form action="/reviews/new" method="POST">
             <input type="text" name="name" placeholder="Name des Objekts" required>
-            <label for="quality">Qualität (<span id="quality-value">3</span>):</label>
+            <label for="quality">Unterricht (<span id="quality-value">3</span>):</label>
             <input type="range" id="quality" name="quality" min="1" max="6" value="3" required oninput="document.getElementById('quality-value').innerText = this.value;">
 
-            <label for="service">Service (<span id="service-value">3</span>):</label>
+            <label for="service">Freundlichkeit (<span id="service-value">3</span>):</label>
             <input type="range" id="service" name="service" min="1" max="6" value="3" required oninput="document.getElementById('service-value').innerText = this.value;">
 
             <label for="atmosphere">Atmosphäre (<span id="atmosphere-value">3</span>):</label>
