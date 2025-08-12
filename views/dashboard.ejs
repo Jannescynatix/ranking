@@ -8,31 +8,38 @@
 </head>
 <body>
 <div class="container">
-    <h1>Willkommen, <%= user.username %>!</h1>
-    <a href="/reviews/new">Neue Bewertung</a>
-    <a href="/logout">Abmelden</a>
-
-    <% if (user.isAdmin) { %>
-        <a href="/admin/dashboard">Admin-Dashboard</a>
-    <% } %>
+    <header>
+        <h1>Willkommen, <%= user.username %>!</h1>
+        <div class="nav-links">
+            <a href="/reviews/new" class="btn-primary">Neue Bewertung</a>
+            <% if (user.isAdmin) { %>
+                <a href="/admin/dashboard" class="btn-primary">Admin-Dashboard</a>
+            <% } %>
+            <a href="/logout" class="btn-danger">Abmelden</a>
+        </div>
+    </header>
 
     <% products.forEach(product => { %>
         <div class="product-card">
             <h2><%= product.name %></h2>
+            <p class="text-muted">Anzahl Bewertungen: <%= product.reviewCount %></p>
             <p>Durchschnittliche Bewertungen:</p>
             <ul>
                 <li>Qualität: <%= (product.ratings.quality).toFixed(1) %></li>
                 <li>Service: <%= (product.ratings.service).toFixed(1) %></li>
                 <li>Atmosphäre: <%= (product.ratings.atmosphere).toFixed(1) %></li>
             </ul>
-            <p>Anzahl Bewertungen: <%= product.reviewCount %></p>
 
             <h3>Kommentare:</h3>
-            <% product.comments.forEach(comment => { %>
-                <div class="comment-card">
-                    <p><%= comment.comment %></p>
-                </div>
-            <% }) %>
+            <% if (product.comments.length > 0) { %>
+                <% product.comments.forEach(comment => { %>
+                    <div class="comment-card">
+                        <p><%= comment.comment %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="text-muted">Noch keine Kommentare.</p>
+            <% } %>
         </div>
     <% }) %>
 </div>

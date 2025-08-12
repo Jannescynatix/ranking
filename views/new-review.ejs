@@ -8,18 +8,25 @@
 </head>
 <body>
 <div class="container">
-    <h1>Neue Bewertung abgeben</h1>
-    <form action="/reviews/new" method="POST">
-        <input type="text" name="name" placeholder="Name des Objekts" required>
-        <label for="quality">Qualität (1-6):</label>
-        <input type="range" id="quality" name="quality" min="1" max="6" value="3" required>
-        <label for="service">Service (1-6):</label>
-        <input type="range" id="service" name="service" min="1" max="6" value="3" required>
-        <label for="atmosphere">Atmosphäre (1-6):</label>
-        <input type="range" id="atmosphere" name="atmosphere" min="1" max="6" value="3" required>
-        <textarea name="comment" placeholder="Ihr Kommentar" required></textarea>
-        <button type="submit">Bewertung abschicken</button>
-    </form>
+    <header>
+        <h1>Neue Bewertung abgeben</h1>
+    </header>
+    <div class="form-card">
+        <form action="/reviews/new" method="POST">
+            <input type="text" name="name" placeholder="Name des Objekts" required>
+            <label for="quality">Qualität (<span id="quality-value">3</span>):</label>
+            <input type="range" id="quality" name="quality" min="1" max="6" value="3" required oninput="document.getElementById('quality-value').innerText = this.value;">
+
+            <label for="service">Service (<span id="service-value">3</span>):</label>
+            <input type="range" id="service" name="service" min="1" max="6" value="3" required oninput="document.getElementById('service-value').innerText = this.value;">
+
+            <label for="atmosphere">Atmosphäre (<span id="atmosphere-value">3</span>):</label>
+            <input type="range" id="atmosphere" name="atmosphere" min="1" max="6" value="3" required oninput="document.getElementById('atmosphere-value').innerText = this.value;">
+
+            <textarea name="comment" placeholder="Ihr Kommentar" required></textarea>
+            <button type="submit" class="btn-success">Bewertung abschicken</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>

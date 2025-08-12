@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require('../models/Product');
 const Review = require('../models/Review');
 
-const forbiddenWords = ['word1', 'word2', 'word3']; // Ihre Liste verbotener Wörter
+const forbiddenWords = ['neger', 'nigga', 'huhrensohn', 'hurensohn', 'hasse']; // Ihre Liste verbotener Wörter
 
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
